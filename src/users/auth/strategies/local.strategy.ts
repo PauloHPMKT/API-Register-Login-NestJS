@@ -7,10 +7,10 @@ import { AuthService } from "../auth.service";
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
     constructor(private authService: AuthService) {
-        super({ usernameField: 'email' })
+        super({ usermail: 'email' })
     }
 
-    validate( email: string, password: string ) {
-        return this.authService.validateUser(email, password)
+    validate( usermail: string, password: string ) {
+        return this.authService.validateUser(usermail, password)
     }
 } 

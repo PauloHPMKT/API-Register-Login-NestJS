@@ -16,4 +16,8 @@ export class UserService {
   
     return newUser.save()
   }
+
+  async findByEmail(usermail: string): Promise<CreateUserDto> {
+    return this.userModel.findOne({ usermail })
+  }
 }

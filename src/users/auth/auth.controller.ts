@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, HttpCode, HttpStatus, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, HttpCode, HttpStatus, Post, UseGuards } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { LocalAuthGuard } from "./guards/local-auth.guard";
 
@@ -11,7 +11,7 @@ export class AuthController {
     @Post('login')
     @HttpCode(HttpStatus.OK)
     @UseGuards(LocalAuthGuard)
-    login () {
-       // return this.authService.userLogin()
+    login (@Body() usermail: string, password: string) {
+       return 'realizar login'//return this.authService.validateUser({ usermail, password })
     }
 }
